@@ -1,0 +1,324 @@
+/* =================================
+   ADD NUTRITION PAGE
+================================= */
+
+.add-nutrition-page {
+  min-height: 100%;
+  padding: 20px 0;
+}
+
+/* =================================
+   FORM CARD
+================================= */
+
+.add-nutrition-card {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: 32px;
+
+  background: #ffffff;
+
+  border: 1px solid #edf0f5;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.add-nutrition-header {
+  margin-bottom: 30px;
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.add-nutrition-label {
+  margin: 0 0 8px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.add-nutrition-header h2 {
+  margin: 0;
+
+  color: #1f2937;
+
+  font-size: 26px;
+}
+
+.add-nutrition-header p:last-child {
+  margin: 8px 0 0;
+
+  color: #6b7280;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =================================
+   FORM
+================================= */
+
+.add-nutrition-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.add-nutrition-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.add-nutrition-group label {
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =================================
+   FORM ROW
+================================= */
+
+.add-nutrition-row {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+/* =================================
+   INPUTS AND SELECT
+================================= */
+
+.add-nutrition-group input,
+.add-nutrition-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe1ea;
+  border-radius: 10px;
+
+  color: #1f2937;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.add-nutrition-group input::placeholder {
+  color: #9ca3af;
+}
+
+.add-nutrition-group input:hover,
+.add-nutrition-group select:hover {
+  border-color: #b9c4d3;
+}
+
+.add-nutrition-group input:focus,
+.add-nutrition-group select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* =================================
+   MEASUREMENT SECTION
+================================= */
+
+.nutrition-measurement-section {
+  padding: 24px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e8edf3;
+  border-radius: 14px;
+}
+
+.nutrition-measurement-header {
+  margin-bottom: 20px;
+}
+
+.nutrition-measurement-header h3 {
+  margin: 0;
+
+  color: #1f2937;
+
+  font-size: 17px;
+}
+
+.nutrition-measurement-header p {
+  margin: 6px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.nutrition-measurement-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+/* =================================
+   BMI
+================================= */
+
+.add-nutrition-group .nutrition-bmi-input {
+  background: #eef6ff;
+
+  color: #12355b;
+
+  font-weight: 700;
+
+  border-color: #cfe0f5;
+
+  cursor: default;
+}
+
+/* =================================
+   BUTTONS
+================================= */
+
+.add-nutrition-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #edf0f5;
+}
+
+.add-nutrition-cancel,
+.add-nutrition-submit {
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Cancel */
+
+.add-nutrition-cancel {
+  background: #f1f5f9;
+
+  color: #475569;
+}
+
+.add-nutrition-cancel:hover:not(:disabled) {
+  background: #e2e8f0;
+
+  transform: translateY(-2px);
+}
+
+/* Submit */
+
+.add-nutrition-submit {
+  background: linear-gradient(135deg, #12355b, #1d5d8f);
+
+  color: #ffffff;
+
+  box-shadow: 0 5px 15px rgba(18, 53, 91, 0.2);
+}
+
+.add-nutrition-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(18, 53, 91, 0.3);
+}
+
+/* Disabled */
+
+.add-nutrition-cancel:disabled,
+.add-nutrition-submit:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 850px) {
+  .nutrition-measurement-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .add-nutrition-card {
+    padding: 24px;
+
+    border-radius: 16px;
+  }
+
+  .add-nutrition-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .add-nutrition-page {
+    padding: 0;
+  }
+
+  .add-nutrition-card {
+    padding: 20px;
+  }
+
+  .add-nutrition-header h2 {
+    font-size: 22px;
+  }
+
+  .nutrition-measurement-section {
+    padding: 18px;
+  }
+
+  .add-nutrition-actions {
+    flex-direction: column-reverse;
+  }
+
+  .add-nutrition-cancel,
+  .add-nutrition-submit {
+    width: 100%;
+  }
+}

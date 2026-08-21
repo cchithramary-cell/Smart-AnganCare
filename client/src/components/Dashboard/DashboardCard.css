@@ -1,0 +1,115 @@
+/* =================================
+   DASHBOARD CARD
+================================= */
+
+.dashboard-card {
+  background: #ffffff;
+
+  border: 1px solid #edf0f5;
+  border-radius: 16px;
+
+  padding: 22px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  cursor: pointer;
+}
+
+/* =================================
+   HOVER EFFECT
+================================= */
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* =================================
+   CARD HEADER
+================================= */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.card-header h5 {
+  margin: 0;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #6b7280;
+}
+
+/* =================================
+   CARD ICON
+================================= */
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  color: white;
+
+  font-size: 22px;
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* =================================
+   CARD BODY
+================================= */
+
+.card-body {
+  margin-top: 22px;
+}
+
+.card-body h2 {
+  margin: 0;
+
+  color: #1f2937;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .dashboard-card {
+    padding: 18px;
+    margin-bottom: 15px;
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 20px;
+  }
+
+  .card-body h2 {
+    font-size: 28px;
+  }
+}

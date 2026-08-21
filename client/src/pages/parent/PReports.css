@@ -1,0 +1,158 @@
+.reports-page {
+  padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.reports-header {
+  margin-bottom: 30px;
+}
+
+.reports-header h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 28px;
+}
+
+.reports-header p {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* Report Section */
+
+.report-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.report-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.report-icon {
+  width: 45px;
+  height: 45px;
+  background: #e8f1ff;
+  color: #0d6efd;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+}
+
+.report-section-header h2 {
+  margin: 0;
+  color: #374151;
+  font-size: 20px;
+}
+
+.report-section-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Table */
+
+.report-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.report-table th {
+  background: #f3f6fa;
+  color: #374151;
+  padding: 14px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.report-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.report-table tbody tr {
+  transition: 0.2s;
+}
+
+.report-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+/* Status */
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-completed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* Empty State */
+
+.empty-report {
+  padding: 30px;
+  text-align: center;
+  color: #6b7280;
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+/* Loading */
+
+.reports-loading {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .reports-page {
+    padding: 20px 15px;
+  }
+
+  .report-section {
+    padding: 18px;
+  }
+
+  .reports-header h1 {
+    font-size: 24px;
+  }
+}

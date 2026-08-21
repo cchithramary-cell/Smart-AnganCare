@@ -1,0 +1,232 @@
+/* ================================
+   ADD MANAGER PAGE
+================================ */
+
+.form-page {
+  min-height: 100vh;
+  padding: 32px;
+  background: #f5f7fb;
+}
+
+/* ================================
+   PAGE HEADER
+================================ */
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.form-header h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.form-header button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 11px 20px;
+
+  background: #ffffff;
+  color: #2563eb;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  border: 1px solid #dbe4f0;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.form-header button:hover {
+  background: #2563eb;
+  color: #ffffff;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.2);
+}
+
+/* ================================
+   FORM CARD
+================================ */
+
+.data-form {
+  width: 100%;
+  max-width: 750px;
+
+  background: #ffffff;
+
+  padding: 32px;
+
+  border: 1px solid #edf0f5;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ================================
+   FORM GROUP
+================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================================
+   INPUTS
+================================ */
+
+.form-group input,
+.form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 14px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+
+  border: 1px solid #dbe1ea;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-size: 15px;
+
+  transition: all 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.form-group input:hover,
+.form-group select:hover {
+  border-color: #aab7c8;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* ================================
+   SELECT
+================================ */
+
+.form-group select {
+  cursor: pointer;
+}
+
+/* ================================
+   SUBMIT BUTTON
+================================ */
+
+.submit-btn {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+  .form-page {
+    padding: 24px 18px;
+  }
+
+  .form-header {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .form-header h1 {
+    font-size: 24px;
+  }
+
+  .data-form {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-page {
+    padding: 18px 14px;
+  }
+
+  .form-header {
+    flex-direction: column;
+  }
+
+  .form-header button {
+    width: 100%;
+  }
+
+  .data-form {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,252 @@
+/* =================================
+   GLOBAL RESET
+================================= */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+}
+
+/* =================================
+   LOGIN PAGE
+================================= */
+
+.login-container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background: linear-gradient(135deg, #12355b, #1d5d8f);
+}
+
+/* =================================
+   LOGIN CARD
+================================= */
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border-radius: 22px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+
+  display: flex;
+  flex-direction: column;
+
+  animation: loginFadeIn 0.5s ease;
+}
+
+/* =================================
+   LOGIN TITLE
+================================= */
+
+.login-form h2 {
+  margin: 0 0 8px;
+
+  text-align: center;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #12355b;
+}
+
+/* =================================
+   SUBTITLE
+================================= */
+
+.login-form::before {
+  content: "Welcome back! Please sign in to continue";
+
+  display: block;
+
+  margin-bottom: 28px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =================================
+   INPUT FIELDS
+================================= */
+
+.login-form input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  margin-bottom: 16px;
+
+  background: #f8fafc;
+
+  border: 1px solid #dbe3ec;
+
+  border-radius: 10px;
+
+  color: #1f2937;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+/* Placeholder */
+
+.login-form input::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus */
+
+.login-form input:focus {
+  background: #ffffff;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* =================================
+   LOGIN BUTTON
+================================= */
+
+.login-form button {
+  width: 100%;
+
+  margin-top: 5px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.25s ease;
+}
+
+/* Hover */
+
+.login-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Active */
+
+.login-form button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Disabled */
+
+.login-form button:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+/* =================================
+   LINKS / REGISTER TEXT
+================================= */
+
+.login-form p {
+  margin: 24px 0 0;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.login-form p a {
+  color: #2563eb;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.login-form p a:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+/* =================================
+   ENTRY ANIMATION
+================================= */
+
+@keyframes loginFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 18px;
+  }
+
+  .login-form {
+    padding: 28px 22px;
+
+    border-radius: 18px;
+  }
+
+  .login-form h2 {
+    font-size: 24px;
+  }
+
+  .login-form input {
+    padding: 13px 14px;
+  }
+}

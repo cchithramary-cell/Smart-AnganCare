@@ -1,0 +1,144 @@
+/* =================================
+   APP LAYOUT
+================================= */
+
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f5f7fb;
+
+  overflow-x: hidden;
+}
+
+/* =================================
+   MAIN SECTION
+================================= */
+
+.main-section {
+  margin-left: 250px;
+
+  width: calc(100% - 250px);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #f5f7fb;
+
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+/* =================================
+   PAGE CONTENT
+================================= */
+
+.page-content {
+  flex: 1;
+
+  padding: 32px;
+
+  min-height: calc(100vh - 70px);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.05),
+      transparent 30%
+    ),
+    #f5f7fb;
+
+  animation: pageFadeIn 0.35s ease;
+}
+
+/* =================================
+   PAGE ENTRY ANIMATION
+================================= */
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   COMMON PAGE CONTAINER
+================================= */
+
+.page-content .container {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+/* =================================
+   SCROLLBAR
+================================= */
+
+.main-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-section::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.main-section::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.main-section::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =================================
+   TABLET RESPONSIVE
+================================= */
+
+@media (max-width: 1024px) {
+  .main-section {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
+
+  .page-content {
+    padding: 25px;
+  }
+}
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .main-section {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .page-content {
+    padding: 20px;
+    min-height: 100vh;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .page-content {
+    padding: 15px;
+  }
+}

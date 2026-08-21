@@ -1,0 +1,434 @@
+/* =================================
+   ATTENDANCE MANAGEMENT
+================================= */
+
+.attendance-page {
+  width: 100%;
+  padding: 10px 0;
+}
+
+
+/* =================================
+   HEADER
+================================= */
+
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 25px;
+
+  margin-bottom: 28px;
+}
+
+.page-label {
+  margin: 0 0 8px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.attendance-header h1 {
+  margin: 0;
+
+  color: #1f2937;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.page-description {
+  margin: 8px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+
+/* =================================
+   ADD BUTTON
+================================= */
+
+.add-attendance-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+
+  background: linear-gradient(135deg, #12355b, #1d5d8f);
+
+  color: #ffffff;
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  box-shadow: 0 5px 15px rgba(18, 53, 91, 0.2);
+
+  transition: all 0.25s ease;
+}
+
+.add-attendance-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(18, 53, 91, 0.3);
+}
+
+
+/* =================================
+   MAIN CARD
+================================= */
+
+.attendance-card {
+  background: #ffffff;
+
+  border: 1px solid #edf0f5;
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =================================
+   TOOLBAR
+================================= */
+
+.attendance-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 20px 24px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.search-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+
+  top: 50%;
+  left: 14px;
+
+  transform: translateY(-50%);
+
+  color: #94a3b8;
+
+  font-size: 20px;
+}
+
+.search-box input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 15px 12px 42px;
+
+  border: 1px solid #dbe1ea;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #1f2937;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.search-box input:focus {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.record-count {
+  padding: 8px 12px;
+
+  background: #f1f5f9;
+
+  color: #475569;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* =================================
+   TABLE
+================================= */
+
+.table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.attendance-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 850px;
+}
+
+.attendance-table th {
+  padding: 15px 20px;
+
+  background: #f8fafc;
+
+  color: #64748b;
+
+  text-align: left;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.attendance-table td {
+  padding: 17px 20px;
+
+  color: #374151;
+
+  font-size: 14px;
+
+  border-bottom: 1px solid #edf0f5;
+}
+
+.attendance-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.attendance-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.attendance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =================================
+   TABLE CONTENT
+================================= */
+
+.id-cell {
+  color: #94a3b8 !important;
+
+  font-weight: 600;
+}
+
+.child-id {
+  display: inline-flex;
+
+  padding: 6px 10px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.remarks-cell {
+  max-width: 250px;
+
+  color: #64748b !important;
+}
+
+
+/* =================================
+   STATUS BADGES
+================================= */
+
+.status-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.present {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+.status-badge.absent {
+  background: #fee2e2;
+
+  color: #dc2626;
+}
+
+
+/* =================================
+   ACTION BUTTONS
+================================= */
+
+.action-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 14px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  border: none;
+
+  text-decoration: none;
+}
+
+.edit-btn:hover {
+  background: #dbeafe;
+}
+
+.delete-btn {
+  background: #fef2f2;
+
+  color: #dc2626;
+
+  border: none;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+}
+
+
+/* =================================
+   EMPTY / LOADING STATE
+================================= */
+
+.table-message {
+  padding: 60px 25px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.table-message h3 {
+  margin: 0 0 8px;
+
+  color: #374151;
+}
+
+.table-message p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 700px) {
+  .attendance-page {
+    padding: 0;
+  }
+
+  .attendance-header {
+    flex-direction: column;
+  }
+
+  .add-attendance-btn {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+  .attendance-toolbar {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .record-count {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .attendance-header h1 {
+    font-size: 23px;
+  }
+
+  .attendance-card {
+    border-radius: 14px;
+  }
+
+  .attendance-toolbar {
+    padding: 16px;
+  }
+}
