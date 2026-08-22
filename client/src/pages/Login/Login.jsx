@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { loginUser } from "../../services/authService";
 import { AuthContext } from "../../context/AuthContext";
@@ -33,26 +33,9 @@ function Login() {
 
       const response = await loginUser(formData);
 
-      console.log("Login Response:", response);
-
-      /*
-       * Your backend response may be:
-       *
-       * {
-       *   success: true,
-       *   data: {
-       *      token: "...",
-       *      user: {...}
-       *   }
-       * }
-       *
-       * or directly contain token/user.
-       */
-
       const payload = response?.data || response;
 
       const userData = payload?.user || payload?.data?.user;
-
       const token = payload?.token || payload?.data?.token;
 
       if (!userData || !token) {
@@ -60,15 +43,7 @@ function Login() {
         return;
       }
 
-      console.log("Logged User:", userData);
-      console.log("Role:", userData.role);
-
-      // Save user and token
       login(userData, token);
-
-      // ===============================
-      // ROLE-BASED NAVIGATION
-      // ===============================
 
       switch (userData.role) {
         case "admin":
@@ -125,10 +100,6 @@ function Login() {
         <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
-
-        <p>
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
       </form>
     </div>
   );
