@@ -1,11 +1,7 @@
 import axios from "axios";
 
-const baseURL = (
-  import.meta.env.VITE_API_URL || "https://smart-angancare.onrender.com"
-).replace(/\/$/, "");
-
 const api = axios.create({
-  baseURL: `${baseURL}/api`,
+  baseURL: `${import.meta.env.VITE_API_URL}/api`,
   headers: {
     "Content-Type": "application/json",
   },
@@ -14,7 +10,8 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
-  if (token) {
+  // Don't send an old token with login
+  if (token && !config.url?.includes("/auth/login")) {
     config.headers.Authorization = `Bearer ${token}`;
   }
 
