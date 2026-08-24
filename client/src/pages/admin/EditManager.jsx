@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import api from "../../services/api";
 
+import "./AddManager.css";
+
 function EditManager() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -26,8 +28,7 @@ function EditManager() {
       setLoading(true);
 
       const response = await api.get(`/admin/managers/${id}`);
-
-      const manager = response.data.manager || response.data;
+      const manager = response?.data?.data || response?.data?.manager || {};
 
       setFormData({
         full_name: manager.full_name || "",

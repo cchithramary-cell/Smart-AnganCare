@@ -1,76 +1,81 @@
 .parent-dashboard {
   min-height: 100vh;
-  padding: 35px;
-  background: #f5f7fb;
+  padding: 32px 24px 40px;
+  background: linear-gradient(135deg, #edf5ff 0%, #f7f9fc 35%, #eff6ff 100%);
 }
 
 .dashboard-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
+  padding: 26px 20px 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(14px);
 }
 
 .dashboard-header h1 {
   margin: 0 0 10px;
-  font-size: 38px;
-  font-weight: 500;
-  color: #1f2937;
+  font-size: clamp(2rem, 2vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #0f172a;
 }
 
 .dashboard-header h2 {
   margin: 0;
-  font-size: 30px;
-  font-weight: 400;
-  color: #374151;
+  font-size: clamp(1.4rem, 1.7vw, 2.1rem);
+  font-weight: 600;
+  color: #334155;
 }
 
 .dashboard-grid {
-  max-width: 860px;
+  max-width: 980px;
   margin: auto;
-
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
   gap: 20px;
 }
 
 .dashboard-card {
-  min-height: 100px;
-  padding: 15px 20px;
-
-  background: white;
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
-
+  min-height: 118px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 20px;
   text-align: center;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
-  transition: 0.3s;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  backdrop-filter: blur(10px);
 }
 
 .dashboard-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 32px rgba(37, 99, 235, 0.12);
 }
 
 .dashboard-card h3 {
-  margin: 0 0 12px;
-  font-size: 26px;
-  font-weight: 400;
-  color: #1f2937;
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
 }
 
 .dashboard-card p {
   margin: 0;
-  font-size: 18px;
-  color: #374151;
+  font-size: 1.08rem;
+  color: #475569;
 }
 
 @media (max-width: 768px) {
   .parent-dashboard {
-    padding: 20px;
+    padding: 20px 16px 28px;
   }
 
   .dashboard-grid {
@@ -78,10 +83,10 @@
   }
 
   .dashboard-header h1 {
-    font-size: 30px;
+    font-size: 1.9rem;
   }
 
   .dashboard-header h2 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 }

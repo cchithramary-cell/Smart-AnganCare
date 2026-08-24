@@ -13,10 +13,6 @@ function MyNutrition() {
   const [nutrition, setNutrition] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadNutrition();
-  }, []);
-
   const loadNutrition = async () => {
     try {
       setLoading(true);
@@ -36,6 +32,9 @@ function MyNutrition() {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    loadNutrition();
+  }, []);
 
   const formatDate = (date) => {
     if (!date) return "N/A";

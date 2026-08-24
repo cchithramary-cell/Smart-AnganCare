@@ -60,6 +60,24 @@ function PReports() {
   const formatDate = (date) => {
     if (!date) return "-";
 
+    if (typeof date === "string") {
+      const trimmed = date.trim();
+
+      if (!trimmed) return "-";
+
+      const parsedDate = new Date(trimmed);
+
+      if (!Number.isNaN(parsedDate.getTime())) {
+        return parsedDate.toLocaleDateString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        });
+      }
+
+      return trimmed;
+    }
+
     const parsedDate = new Date(date);
 
     if (Number.isNaN(parsedDate.getTime())) {

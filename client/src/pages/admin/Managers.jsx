@@ -18,8 +18,13 @@ function Managers() {
       setError("");
 
       const response = await api.get("/admin/managers");
+      const managerList = Array.isArray(response?.data?.data)
+        ? response.data.data
+        : Array.isArray(response?.data?.managers)
+          ? response.data.managers
+          : [];
 
-      setManagers(response.data.managers || response.data || []);
+      setManagers(managerList);
     } catch (err) {
       console.error("Error fetching managers:", err);
 

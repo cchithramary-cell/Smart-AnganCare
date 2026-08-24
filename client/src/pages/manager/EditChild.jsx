@@ -31,23 +31,13 @@ function EditChild() {
 
         const response = await getChild(id);
 
-        console.log("FULL API RESPONSE:", response);
-        console.log("API DATA:", response.data);
+        const data =
+          response?.data?.data ?? response?.data?.child ?? response?.data ?? {};
 
-        // Backend service returns:
-        // {
-        //   success: true,
-        //   data: child
-        // }
-        const data = response.data?.data;
-
-        console.log("CHILD DATA:", data);
-
-        if (!data) {
+        if (!data || Object.keys(data).length === 0) {
           throw new Error("Child details not found");
         }
 
-        // Keep form values as strings while editing to avoid controlled/uncontrolled issues
         setChild({
           parent_id: data.parent_id != null ? String(data.parent_id) : "",
           center_id: data.center_id != null ? String(data.center_id) : "",
@@ -96,7 +86,6 @@ function EditChild() {
     try {
       setSaving(true);
 
-      // Convert numeric fields back to numbers (or omit if empty)
       const payload = {
         ...child,
         parent_id: child.parent_id !== "" ? Number(child.parent_id) : undefined,
@@ -116,7 +105,6 @@ function EditChild() {
       await updateChild(id, payload);
 
       alert("Child Updated Successfully");
-
       navigate("/manager/children");
     } catch (error) {
       console.error("UPDATE CHILD ERROR:", error);

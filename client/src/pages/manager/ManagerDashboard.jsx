@@ -110,22 +110,6 @@ function ManagerDashboard() {
           </div>
         ))}
       </div>
-
-      <div className="welcome-card">
-        <div className="welcome-icon">
-          <FaHeartbeat />
-        </div>
-
-        <div>
-          <h2>Welcome, Manager 👋</h2>
-
-          <p>
-            You can manage parent and child information, track attendance,
-            monitor growth and nutrition, and maintain vaccination records from
-            the navigation menu.
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

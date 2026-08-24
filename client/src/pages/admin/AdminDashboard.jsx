@@ -18,19 +18,19 @@ import { getDashboardStats } from "../../services/analyticsService";
 
 import "./AdminDashboard.css";
 
-function AdminDashboard() {
-  const initialDashboard = {
-    totalCenters: 0,
-    totalManagers: 0,
-    totalParents: 0,
-    totalChildren: 0,
-    presentToday: 0,
-    absentToday: 0,
-    vaccinationCompleted: 0,
-    vaccinationPending: 0,
-    averageBMI: 0,
-  };
+const initialDashboard = {
+  totalCenters: 0,
+  totalManagers: 0,
+  totalParents: 0,
+  totalChildren: 0,
+  presentToday: 0,
+  absentToday: 0,
+  vaccinationCompleted: 0,
+  vaccinationPending: 0,
+  averageBMI: 0,
+};
 
+function AdminDashboard() {
   const [dashboard, setDashboard] = useState(initialDashboard);
   const [loading, setLoading] = useState(true);
 
@@ -102,6 +102,12 @@ function AdminDashboard() {
       icon: <FaHeartbeat />,
       type: "pending",
     },
+    {
+      title: "Average BMI",
+      value: dashboard.averageBMI,
+      icon: <FaChartBar />,
+      type: "bmi",
+    },
   ];
 
   if (loading) {
@@ -115,13 +121,10 @@ function AdminDashboard() {
 
   return (
     <div className="dashboard">
-      {/* Header */}
-      <div className="dashboard-header">
+      <header className="dashboard-header">
         <div>
           <p className="dashboard-label">ADMINISTRATION PANEL</p>
-
           <h1>Smart AnganCare Dashboard</h1>
-
           <p className="subtitle">
             Monitor your Anganwadi centers, child health records and system
             activities from one place.
@@ -138,50 +141,46 @@ function AdminDashboard() {
             <strong>Administrator</strong>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Statistics */}
-      <div className="section-header">
+      <section className="section-header">
         <div>
           <h2>Overview</h2>
           <p>Current system statistics</p>
         </div>
-      </div>
+      </section>
 
-      <div className="cards">
+      <section className="cards" aria-label="Admin statistics overview">
         {statistics.map((item) => (
-          <div className={`stat-card ${item.type}`} key={item.title}>
+          <article className={`stat-card ${item.type}`} key={item.title}>
             <div className="stat-icon">{item.icon}</div>
 
             <div className="stat-content">
               <p>{item.title}</p>
               <h2>{item.value ?? 0}</h2>
             </div>
-          </div>
+          </article>
         ))}
-      </div>
+      </section>
 
-      {/* Welcome Section */}
       <div className="dashboard-bottom">
-        <div className="welcome">
+        <section className="welcome">
           <div className="welcome-content">
-            <p className="welcome-label">SMART MANAGEMENT</p>
-
-            <h2>Everything under one dashboard</h2>
-
+            <span className="welcome-label">SYSTEM HEALTH</span>
+            <h2>Operational summary</h2>
             <p>
-              Manage centers and managers, monitor child health information, and
-              analyze attendance and vaccination data efficiently.
+              Your centers are running smoothly and the administration team can
+              monitor performance, attendance, vaccination progress, and child
+              wellbeing from a single dashboard.
             </p>
           </div>
 
           <div className="welcome-icon">
             <FaChartBar />
           </div>
-        </div>
+        </section>
 
-        {/* Quick Actions */}
-        <div className="quick-actions">
+        <section className="quick-actions">
           <h2>Quick Actions</h2>
           <p>Navigate quickly to important modules</p>
 
@@ -204,7 +203,7 @@ function AdminDashboard() {
               <FaArrowRight className="arrow" />
             </Link>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
