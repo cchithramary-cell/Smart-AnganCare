@@ -47,16 +47,20 @@ function EditChild() {
           throw new Error("Child details not found");
         }
 
+        // Keep form values as strings while editing to avoid controlled/uncontrolled issues
         setChild({
-          parent_id: data.parent_id ?? "",
-          center_id: data.center_id ?? "",
+          parent_id: data.parent_id != null ? String(data.parent_id) : "",
+          center_id: data.center_id != null ? String(data.center_id) : "",
           child_name: data.child_name ?? "",
           gender: data.gender ?? "",
           dob: data.dob ? String(data.dob).split("T")[0] : "",
           blood_group: data.blood_group ?? "",
-          birth_weight: data.birth_weight ?? "",
-          current_height: data.current_height ?? "",
-          current_weight: data.current_weight ?? "",
+          birth_weight:
+            data.birth_weight != null ? String(data.birth_weight) : "",
+          current_height:
+            data.current_height != null ? String(data.current_height) : "",
+          current_weight:
+            data.current_weight != null ? String(data.current_weight) : "",
           status: data.status ?? "Active",
         });
       } catch (error) {
@@ -92,7 +96,24 @@ function EditChild() {
     try {
       setSaving(true);
 
-      await updateChild(id, child);
+      // Convert numeric fields back to numbers (or omit if empty)
+      const payload = {
+        ...child,
+        parent_id: child.parent_id !== "" ? Number(child.parent_id) : undefined,
+        center_id: child.center_id !== "" ? Number(child.center_id) : undefined,
+        birth_weight:
+          child.birth_weight !== "" ? Number(child.birth_weight) : undefined,
+        current_height:
+          child.current_height !== ""
+            ? Number(child.current_height)
+            : undefined,
+        current_weight:
+          child.current_weight !== ""
+            ? Number(child.current_weight)
+            : undefined,
+      };
+
+      await updateChild(id, payload);
 
       alert("Child Updated Successfully");
 
