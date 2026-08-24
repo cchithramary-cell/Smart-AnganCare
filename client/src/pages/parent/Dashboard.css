@@ -52,7 +52,7 @@
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
-  backdrop-filter: blur(10px);
+ 
 }
 
 .dashboard-card:hover {

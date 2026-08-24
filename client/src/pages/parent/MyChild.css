@@ -115,7 +115,10 @@
   background: rgba(248, 250, 252, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: 18px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .detail-card:hover {
@@ -223,11 +226,6 @@
 
   .details-grid {
     grid-template-columns: 1fr;
-  }
-}  }
-
-  .page-header h2 {
-    font-size: 24px;
   }
 }
 
