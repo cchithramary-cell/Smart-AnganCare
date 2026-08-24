@@ -1,25 +1,21 @@
-import axios from "axios";
+import api from "./api";
 
-const API = "http://localhost:5000/api/nutrition";
+export const getNutrition = () => {
+  return api.get("/nutrition");
+};
 
-const config = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
+export const getNutritionById = (id) => {
+  return api.get(`/nutrition/${id}`);
+};
 
-export const getNutrition = () =>
-  axios.get(API, config());
+export const addNutrition = (data) => {
+  return api.post("/nutrition", data);
+};
 
-export const getNutritionById = (id) =>
-  axios.get(`${API}/${id}`, config());
+export const updateNutrition = (id, data) => {
+  return api.put(`/nutrition/${id}`, data);
+};
 
-export const addNutrition = (data) =>
-  axios.post(API, data, config());
-
-export const updateNutrition = (id, data) =>
-  axios.put(`${API}/${id}`, data, config());
-
-export const deleteNutrition = (id) =>
-    axios.delete(`${API}/${id}`, config());
+export const deleteNutrition = (id) => {
+  return api.delete(`/nutrition/${id}`);
+};

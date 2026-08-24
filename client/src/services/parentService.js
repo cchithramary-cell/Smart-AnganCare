@@ -1,26 +1,11 @@
-import axios from "axios";
+import api from "./api";
 
-const API = "http://localhost:5000/api/parents";
+export const getParents = () => api.get("/parents");
 
-const config = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
+export const getParent = (id) => api.get(`/parents/${id}`);
 
-// Get All Parents
-export const getParents = () => axios.get(API, config());
+export const addParent = (data) => api.post("/parents", data);
 
-// Get Parent
-export const getParent = (id) => axios.get(`${API}/${id}`, config());
+export const updateParent = (id, data) => api.put(`/parents/${id}`, data);
 
-// Add Parent
-export const addParent = (data) => axios.post(API, data, config());
-
-// Update Parent
-export const updateParent = (id, data) =>
-  axios.put(`${API}/${id}`, data, config());
-
-// Delete Parent
-export const deleteParent = (id) => axios.delete(`${API}/${id}`, config());
+export const deleteParent = (id) => api.delete(`/parents/${id}`);

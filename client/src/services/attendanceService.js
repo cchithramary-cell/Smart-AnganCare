@@ -1,30 +1,21 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/attendance";
-
-const getConfig = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
+import api from "./api";
 
 export const getAttendanceRecords = () => {
-  return axios.get(API, getConfig());
+  return api.get("/attendance");
 };
 
 export const getAttendanceRecord = (id) => {
-  return axios.get(`${API}/${id}`, getConfig());
+  return api.get(`/attendance/${id}`);
 };
 
 export const addAttendanceRecord = (attendanceData) => {
-  return axios.post(API, attendanceData, getConfig());
+  return api.post("/attendance", attendanceData);
 };
 
 export const updateAttendanceRecord = (id, attendanceData) => {
-  return axios.put(`${API}/${id}`, attendanceData, getConfig());
+  return api.put(`/attendance/${id}`, attendanceData);
 };
 
 export const deleteAttendanceRecord = (id) => {
-  return axios.delete(`${API}/${id}`, getConfig());
+  return api.delete(`/attendance/${id}`);
 };

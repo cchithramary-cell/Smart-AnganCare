@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
+import api from "../../services/api";
+
 import "./Managers.css";
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 function Managers() {
   const navigate = useNavigate();
@@ -16,13 +17,7 @@ function Managers() {
       setLoading(true);
       setError("");
 
-      const token = localStorage.getItem("token");
-
-      const response = await axios.get(`${API_URL}/admin/managers`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.get("/admin/managers");
 
       setManagers(response.data.managers || response.data || []);
     } catch (err) {
@@ -46,13 +41,7 @@ function Managers() {
     if (!confirmDelete) return;
 
     try {
-      const token = localStorage.getItem("token");
-
-      await axios.delete(`${API_URL}/admin/managers/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await api.delete(`/admin/managers/${id}`);
 
       alert("Manager deleted successfully");
 

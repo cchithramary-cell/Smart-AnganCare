@@ -1,21 +1,21 @@
-import axios from "axios";
+import api from "./api";
 
-const API = "http://localhost:5000/api/vaccinations";
+export const getVaccinations = () => {
+  return api.get("/vaccinations");
+};
 
-const config = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
+export const getVaccination = (id) => {
+  return api.get(`/vaccinations/${id}`);
+};
 
-export const getVaccinations = () => axios.get(API, config());
+export const addVaccination = (data) => {
+  return api.post("/vaccinations", data);
+};
 
-export const getVaccination = (id) => axios.get(`${API}/${id}`, config());
+export const updateVaccination = (id, data) => {
+  return api.put(`/vaccinations/${id}`, data);
+};
 
-export const addVaccination = (data) => axios.post(API, data, config());
-
-export const updateVaccination = (id, data) =>
-  axios.put(`${API}/${id}`, data, config());
-
-export const deleteVaccination = (id) => axios.delete(`${API}/${id}`, config());
+export const deleteVaccination = (id) => {
+  return api.delete(`/vaccinations/${id}`);
+};

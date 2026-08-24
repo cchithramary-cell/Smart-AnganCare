@@ -1,32 +1,21 @@
-const axios = require("axios");
+import api from "./api";
 
-const API = "http://localhost:5000/api/growth";
-
-const config = () => {
-  const headers = { "Content-Type": "application/json" };
-
-  if (process.env.API_TOKEN) {
-    headers.Authorization = `Bearer ${process.env.API_TOKEN}`;
-  }
-
-  return { headers };
+export const getGrowthRecords = () => {
+  return api.get("/growth");
 };
 
-const getGrowthRecords = () => axios.get(API, config());
+export const getGrowthRecord = (id) => {
+  return api.get(`/growth/${id}`);
+};
 
-const getGrowthRecord = (id) => axios.get(`${API}/${id}`, config());
+export const addGrowthRecord = (growthData) => {
+  return api.post("/growth", growthData);
+};
 
-const addGrowthRecord = (data) => axios.post(API, data, config());
+export const updateGrowthRecord = (id, growthData) => {
+  return api.put(`/growth/${id}`, growthData);
+};
 
-const updateGrowthRecord = (id, data) =>
-  axios.put(`${API}/${id}`, data, config());
-
-const deleteGrowthRecord = (id) => axios.delete(`${API}/${id}`, config());
-
-module.exports = {
-  getGrowthRecords,
-  getGrowthRecord,
-  addGrowthRecord,
-  updateGrowthRecord,
-  deleteGrowthRecord,
+export const deleteGrowthRecord = (id) => {
+  return api.delete(`/growth/${id}`);
 };

@@ -1,8 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
+import api from "../../services/api";
+
 import "./AddManager.css";
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 function AddManager() {
   const navigate = useNavigate();
@@ -32,24 +33,14 @@ function AddManager() {
     try {
       setLoading(true);
 
-      const token = localStorage.getItem("token");
-
-      await axios.post(
-        `${API_URL}/admin/managers`,
-        {
-          full_name: formData.full_name,
-          email: formData.email,
-          phone: formData.phone,
-          password: formData.password,
-          role: "manager",
-          status: formData.status,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-      );
+      await api.post("/admin/managers", {
+        full_name: formData.full_name,
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+        role: "manager",
+        status: formData.status,
+      });
 
       alert("Manager created successfully");
 

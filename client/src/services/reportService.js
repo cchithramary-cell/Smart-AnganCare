@@ -1,36 +1,27 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/reports";
-
-const getConfig = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-  },
-});
+import api from "./api";
 
 export const getChildReport = (childId) => {
-  return axios.get(`${API}/child/${childId}`, getConfig());
+  return api.get(`/reports/child/${childId}`);
 };
 
 export const getGrowthReport = (childId) => {
-  return axios.get(`${API}/growth/${childId}`, getConfig());
+  return api.get(`/reports/growth/${childId}`);
 };
 
 export const getAttendanceReport = (childId) => {
-  return axios.get(`${API}/attendance/${childId}`, getConfig());
+  return api.get(`/reports/attendance/${childId}`);
 };
 
 export const getNutritionReport = (childId) => {
-  return axios.get(`${API}/nutrition/${childId}`, getConfig());
+  return api.get(`/reports/nutrition/${childId}`);
 };
 
 export const getVaccinationReport = (childId) => {
-  return axios.get(`${API}/vaccination/${childId}`, getConfig());
+  return api.get(`/reports/vaccination/${childId}`);
 };
 
 export const downloadPDF = (childId) => {
-  return axios.get(`${API}/pdf/${childId}`, {
-    ...getConfig(),
+  return api.get(`/reports/pdf/${childId}`, {
     responseType: "blob",
   });
 };

@@ -1,49 +1,21 @@
-import axios from "axios";
+import api from "./api";
 
-const API = "http://localhost:5000/api/children";
-
-const getToken = () => {
-  return localStorage.getItem("token");
-};
-
-const config = () => ({
-  headers: {
-    Authorization: `Bearer ${getToken()}`,
-    "Content-Type": "application/json",
-  },
-});
-
-// ===========================
-// Get All Children
-// ===========================
 export const getChildren = async () => {
-  return await axios.get(API, config());
+  return await api.get("/children");
 };
 
-// ===========================
-// Get Child By ID
-// ===========================
 export const getChild = async (id) => {
-  return await axios.get(`${API}/${id}`, config());
+  return await api.get(`/children/${id}`);
 };
 
-// ===========================
-// Add Child
-// ===========================
 export const addChild = async (childData) => {
-  return await axios.post(API, childData, config());
+  return await api.post("/children", childData);
 };
 
-// ===========================
-// Update Child
-// ===========================
 export const updateChild = async (id, childData) => {
-  return await axios.put(`${API}/${id}`, childData, config());
+  return await api.put(`/children/${id}`, childData);
 };
 
-// ===========================
-// Delete Child
-// ===========================
 export const deleteChild = async (id) => {
-  return await axios.delete(`${API}/${id}`, config());
+  return await api.delete(`/children/${id}`);
 };

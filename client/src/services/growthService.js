@@ -1,30 +1,26 @@
-import axios from "axios";
+import api from "./api";
 
-const API = "http://localhost:5000/api/growth";
-
-const getConfig = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
-
+// Get all growth records
 export const getGrowthRecords = () => {
-  return axios.get(API, getConfig());
+  return api.get("/growth");
 };
 
+// Get growth record by ID
 export const getGrowthRecord = (id) => {
-  return axios.get(`${API}/${id}`, getConfig());
+  return api.get(`/growth/${id}`);
 };
 
+// Add growth record
 export const addGrowthRecord = (growthData) => {
-  return axios.post(API, growthData, getConfig());
+  return api.post("/growth", growthData);
 };
 
+// Update growth record
 export const updateGrowthRecord = (id, growthData) => {
-  return axios.put(`${API}/${id}`, growthData, getConfig());
+  return api.put(`/growth/${id}`, growthData);
 };
 
+// Delete growth record
 export const deleteGrowthRecord = (id) => {
-  return axios.delete(`${API}/${id}`, getConfig());
+  return api.delete(`/growth/${id}`);
 };

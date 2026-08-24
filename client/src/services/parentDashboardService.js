@@ -1,45 +1,36 @@
-import axios from "axios";
-
-const API = "http://localhost:5000/api/parent";
-
-const getConfig = () => ({
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem("token")}`,
-    "Content-Type": "application/json",
-  },
-});
+import api from "./api";
 
 // Dashboard
 export const getDashboard = () => {
-  return axios.get(`${API}/dashboard`, getConfig());
+  return api.get("/parent/dashboard");
 };
 
 // Child Details
 export const getMyChild = () => {
-  return axios.get(`${API}/child`, getConfig());
+  return api.get("/parent/child");
 };
 
 // Attendance
 export const getMyAttendance = () => {
-  return axios.get(`${API}/attendance`, getConfig());
+  return api.get("/parent/attendance");
 };
 
 // Growth
 export const getMyGrowth = () => {
-  return axios.get(`${API}/growth`, getConfig());
+  return api.get("/parent/growth");
 };
 
 // Nutrition
 export const getMyNutrition = () => {
-  return axios.get(`${API}/nutrition`, getConfig());
+  return api.get("/parent/nutrition");
 };
 
 // Vaccination
 export const getMyVaccination = () => {
-  return axios.get(`${API}/vaccination`, getConfig());
+  return api.get("/parent/vaccination");
 };
 
 // Reports
 export const getMyReports = () => {
-  return axios.get(`${API}/reports`, getConfig());
+  return api.get("/parent/reports");
 };

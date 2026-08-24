@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+import api from "../../services/api";
 
 function EditManager() {
   const { id } = useParams();
@@ -24,13 +23,9 @@ function EditManager() {
 
   const fetchManager = async () => {
     try {
-      const token = localStorage.getItem("token");
+      setLoading(true);
 
-      const response = await axios.get(`${API_URL}/admin/managers/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.get(`/admin/managers/${id}`);
 
       const manager = response.data.manager || response.data;
 
@@ -66,13 +61,7 @@ function EditManager() {
     try {
       setSaving(true);
 
-      const token = localStorage.getItem("token");
-
-      await axios.put(`${API_URL}/admin/managers/${id}`, formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await api.put(`/admin/managers/${id}`, formData);
 
       alert("Manager updated successfully");
 
